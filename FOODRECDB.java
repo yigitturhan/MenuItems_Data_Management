@@ -61,7 +61,6 @@ public class FOODRECDB implements IFOODRECDB{
                 "PRIMARY KEY (ingredientID, dietaryCategory));";
 
 
-        // MenuItems Table
         try{
             Statement statement = this.connection.createStatement();
             statement.executeUpdate(query_create_MenuItems);
@@ -71,7 +70,6 @@ public class FOODRECDB implements IFOODRECDB{
             e.printStackTrace();
         }
 
-        // Ingredients Table
         try{
             Statement statement = this.connection.createStatement();
             statement.executeUpdate(query_create_Ingredients);
@@ -81,7 +79,6 @@ public class FOODRECDB implements IFOODRECDB{
             e.printStackTrace();
         }
 
-        // Includes Table
         try{
             Statement statement = this.connection.createStatement();
             statement.executeUpdate(query_create_Includes);
@@ -91,7 +88,6 @@ public class FOODRECDB implements IFOODRECDB{
             e.printStackTrace();
         }
 
-        // Ratings Table
         try{
             Statement statement = this.connection.createStatement();
             statement.executeUpdate(query_create_Ratings);
@@ -101,7 +97,6 @@ public class FOODRECDB implements IFOODRECDB{
             e.printStackTrace();
         }
 
-        // DietaryCategories Table
         try{
             Statement statement = this.connection.createStatement();
             statement.executeUpdate(query_create_DietaryCategories);
@@ -126,8 +121,6 @@ public class FOODRECDB implements IFOODRECDB{
         String query_drop_Ratings = "DROP TABLE IF EXISTS Ratings;";
         String query_drop_DietaryCategories = "DROP TABLE IF EXISTS DietaryCategories;";
 
-        // DUE TO THE FOREIGN KEY CONSTRAINTS YOU HAVE TO DROP THE TABLES IN REVERSE ORDER !!!
-        // DietaryCategories Table
 
         try {
             Statement statement = this.connection.createStatement();
@@ -138,7 +131,6 @@ public class FOODRECDB implements IFOODRECDB{
             e.printStackTrace();
         }
 
-        // Ratings Table
         try {
             Statement statement = this.connection.createStatement();
             statement.executeUpdate(query_drop_Ratings);
@@ -148,7 +140,6 @@ public class FOODRECDB implements IFOODRECDB{
             e.printStackTrace();
         }
 
-        // Includes Table
         try {
             Statement statement = this.connection.createStatement();
             statement.executeUpdate(query_drop_Includes);
@@ -158,7 +149,6 @@ public class FOODRECDB implements IFOODRECDB{
             e.printStackTrace();
         }
 
-        // Ingredients Table
         try {
             Statement statement = this.connection.createStatement();
             statement.executeUpdate(query_drop_Ingredients);
@@ -168,7 +158,6 @@ public class FOODRECDB implements IFOODRECDB{
             e.printStackTrace();
         }
 
-        // MenuItems Table
         try {
             Statement statement = this.connection.createStatement();
             statement.executeUpdate(query_drop_MenuItems);
@@ -196,7 +185,6 @@ public class FOODRECDB implements IFOODRECDB{
                 stmt.setString(3,menu.getCuisine());
                 stmt.setInt(4,menu.getPrice());
                 stmt.executeUpdate();
-                //Close
                 stmt.close();
                 numberofRowsInserted++;
 
@@ -223,7 +211,6 @@ public class FOODRECDB implements IFOODRECDB{
                 stmt.setInt(1,ing.getIngredientID());
                 stmt.setString(2,ing.getIngredientName());
                 stmt.executeUpdate();
-                //Close
                 stmt.close();
                 numberofRowsInserted++;
 
@@ -250,7 +237,6 @@ public class FOODRECDB implements IFOODRECDB{
                 stmt.setInt(1,inc.getItemID());
                 stmt.setInt(2,inc.getIngredientID());
                 stmt.executeUpdate();
-                //Close
                 stmt.close();
                 numberofRowsInserted++;
 
@@ -277,7 +263,6 @@ public class FOODRECDB implements IFOODRECDB{
                 stmt.setInt(1,cat.getIngredientID());
                 stmt.setString(2,cat.getDietaryCategory());
                 stmt.executeUpdate();
-                //Close
                 stmt.close();
                 numberofRowsInserted++;
 
@@ -306,7 +291,6 @@ public class FOODRECDB implements IFOODRECDB{
                 stmt.setInt(3,rat.getRating());
                 stmt.setString(4,rat.getRatingDate());
                 stmt.executeUpdate();
-                //Close
                 stmt.close();
                 numberofRowsInserted++;
 
